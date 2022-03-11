@@ -9,6 +9,16 @@ class TableRow extends React.Component{
 
     }
 
+    handleEditProduct = () => {
+        console.log("TableRow product edit id: ", this.props.productId)
+        this.props.editProduct(this.props.productId)
+    }
+
+    handleDeleteProduct = () => {
+        console.log("TableRow product delete id: ", this.props.productId)
+        this.props.deleteProduct(this.props.productId)
+    }
+
     render() {
         return (
             <div className="container">
@@ -31,7 +41,8 @@ class TableRow extends React.Component{
                         <td>${this.props.productPrice}</td>
                         <td>{this.props.productQuantity}</td>
                         <td><button onClick={this.handleOnClick} className="btn btn-primary">Select</button></td>
-                        <td><button className="btn btn-secondary">Edit</button></td>
+                        <td><button onClick={this.handleEditProduct} className="btn btn-secondary">Edit</button></td>
+                        <td><button onClick={this.handleDeleteProduct} className="btn btn-danger">Delete</button></td>
                     </tr>
 
                     </tbody>

@@ -4,6 +4,13 @@ class FormTextArea extends React.Component {
 
     state = {inputData: this.props.value}
 
+    handleChangeData = (e) => {
+        this.setState({inputData: e.target.value}, () => {
+            console.log("contents of the input = ", this.state.inputData);
+            this.props.onChange(this.state.inputData);
+        });
+    }
+
     render() {
         return (
             <div>

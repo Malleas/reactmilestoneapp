@@ -9,6 +9,16 @@ class ProductList extends React.Component{
         this.props.onClick(id)
     }
 
+    handleEditProduct = (productId) => {
+        console.log("The productId to edit is: ", productId)
+        this.props.onEditProduct(productId)
+    }
+
+    handleDeleteProduct = (productId) => {
+        console.log("The productId to delete is: ", productId)
+        this.props.onDeleteProduct(productId)
+    }
+
     render() {
         console.log(this.props.productList)
         const products = this.props.productList.map(
@@ -22,6 +32,8 @@ class ProductList extends React.Component{
                         productPrice={product.productPrice}
                         productQuantity={product.productQuantity}
                         onClick={this.handleOnClick}
+                        editProduct={this.handleEditProduct}
+                        deleteProduct={this.handleDeleteProduct}
                         />
                 )
             }
